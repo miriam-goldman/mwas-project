@@ -20,9 +20,7 @@ wildcard_constraints:
     sample="[^/]+"
 
 # Setting up config files and samples
-print(config)
 Cfg = validate_config(config)
-print(Cfg)
 Samples = load_sample_list(
             Cfg['all']['samplelist_fp'],
             Cfg['all']['paired_end'],
@@ -51,9 +49,6 @@ ADAPTERS_DICT = {
             "TruSeq3-PE": "TruSeq3-PE-2.fa",
             "TruSeq3-SE": "TruSeq3-SE.fa"}
 ADAPTER_FASTA = ADAPTERS_DICT[Cfg['qc']['adapter_name']]
-
-# Change your workdir to output_fp
-# workdir: str(Cfg['all']['output_fp'])
 
 # Set up output paths for the various steps
 QC_FP = output_subdir(Cfg, 'qc')
